@@ -1,7 +1,9 @@
 (function($){
   var workTemplate;
+  var workThumbnailTemplate;
   var resizeTimeout;
   var currentMobileSize;
+  var $workContainer;
   var data = {
     items: [{
         id: 'itv',
@@ -11,6 +13,16 @@
       }, {
         id: 'comic-relief',
         name: 'Comic Relief',
+        description: 'I worked on a short contract...',
+        totalImages: 3 
+      }, {
+        id: 'boomerang',
+        name: 'Boomerang',
+        description: 'I worked on a short contract...',
+        totalImages: 3 
+      }, {
+        id: 'tfl',
+        name: 'TFL',
         description: 'I worked on a short contract...',
         totalImages: 3 
       }
@@ -24,6 +36,7 @@
 
   function init() {
     console.log('Init');
+    $workContainer = $('#work');
     initImagePaths();
     setup();
     setupListeners();
@@ -56,6 +69,7 @@
       for (var j = 0; j < item.totalImages; j++) {
         item.images.push('/images/' + item.id + '/' + (j + 1) + '.jpg');
       }
+      item.imagePath = item.images[0];
     }
     console.log('Init image paths:', data.items);
   }
@@ -128,6 +142,16 @@
 
   function renderMainView() {
     console.log('Render main view');
+    loadWorkThumbnailTemplate();
+    loadWorkTemplate();
+
+    var rows = Math.ceil(data.items.length / 3);
+    console.log('Thumbnail rows: ' + rows);
+    for (var row = 1; row <= rows; row++) {
+      $row =getRowView(data.items.slice(0 * row, 3 * row));
+    }
+
+    $workContainer.append($row);
   }
 
   function renderMobileView() {
@@ -137,12 +161,24 @@
     var item;
     for (var i = 0; i < data.items.length; i++) {
       item = data.items[i];
-      item.imagePath = item.images[0];
       $container.append(getWorkItemView(item));
     }
 
     console.log('Append', $container);
     $('#work').append($container);
+  }
+
+  function getRowView(items) {
+    console.log('Get row view', items);
+    var item;
+    var $row = $(document.createDocumentFragment());
+    for (var i = 0; i < items.length; i++) {
+      item = items[i];
+      $thumbnail = $(Mustache.render(workThumbnailTemplate, item));
+      $row.append($thumbnail);
+    }
+
+    return $row;
   }
 
   function getWorkItemView(work) {
@@ -157,6 +193,14 @@
     }
     console.log('Load work template');
     workTemplate = $('#template-work').html();
+  }
+
+  function loadWorkThumbnailTemplate() {
+    if (workThumbnailTemplate) {
+      return;
+    }
+    console.log('Load work thumbnail template');
+    workThumbnailTemplate = $('#template-work-thumbnail').html();
   }
 
   function loadNextAsset(assetsToLoad, assetsTotal, onAssetLoad, onAllAssetsLoad) {

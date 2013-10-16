@@ -13,11 +13,22 @@ body {
   padding: 1em;
 }
 
+.thumbnail {
+  float: left;
+  width: 33%;
+  height: 10em;
+  background: #fff;
+}
+
+.thumbnail .reveal {
+  display: none;
+}
+
 h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
 
-.work img {
+.work img, .thumbnail img {
   width: 100%;
   height: auto;
 }
