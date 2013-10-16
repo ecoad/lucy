@@ -1,0 +1,23 @@
+body {
+    margin: 1em;
+    background: #D0D0D0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+}
+.work {
+  background: #fff;
+  margin: 1em;
+}
+
+.work .inner-container {
+  padding: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+}
+
+.work img {
+  width: 100%;
+  height: auto;
+}
