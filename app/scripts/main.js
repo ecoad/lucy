@@ -9,7 +9,7 @@
         id: 'itv',
         name: 'ITV',
         description: 'I worked on a short contract with ITV and produced some illustrative social media graphics for ITV3 and ITV4',
-        totalImages: 4 
+        totalImages: 3 
       }, {
         id: 'comic-relief',
         name: 'Comic Relief',
@@ -148,10 +148,10 @@
     var rows = Math.ceil(data.items.length / 3);
     console.log('Thumbnail rows: ' + rows);
     for (var row = 1; row <= rows; row++) {
-      $row =getRowView(data.items.slice(0 * row, 3 * row));
+      $row = getRowView(data.items.slice((row -1) * 3, row * 3));
+      $workContainer.append($row);
     }
 
-    $workContainer.append($row);
   }
 
   function renderMobileView() {
@@ -171,20 +171,53 @@
   function getRowView(items) {
     console.log('Get row view', items);
     var item;
-    var $row = $(document.createDocumentFragment());
+    var $fragment = $(document.createDocumentFragment());
+    var $row = $('<div />').addClass('row');
+    $fragment.append($row);
+
     for (var i = 0; i < items.length; i++) {
       item = items[i];
       $thumbnail = $(Mustache.render(workThumbnailTemplate, item));
+      $thumbnail.click(onThumbnailClick);
       $row.append($thumbnail);
     }
 
-    return $row;
+    return $fragment;
   }
 
   function getWorkItemView(work) {
     console.log('Get work item view', work);
     var $view = $(Mustache.render(workTemplate, work));
+    $view.find('a.image-selector').click(onImageSelectorClick);
     return $view;
+  }
+
+  function onThumbnailClick(event) {
+    var $thumbnail = $(event.currentTarget);
+    var $row = $thumbnail.parents('.row');
+    var selectedWork = $thumbnail.attr('data-work');
+    var work;
+    for (var i = 0; i < data.items.length; i++) {
+      if (data.items[i].id === selectedWork) {
+        work = data.items[i];
+        break;
+      }
+    }
+
+    console.log(selectedWork + ' selected');
+    console.log(work);
+    $('.work').remove();
+    $row.append(getWorkItemView(work));
+  }
+
+  function onImageSelectorClick(event) {
+    event.preventDefault();
+    console.log(event.currentTarget);
+    var $link = $(event.currentTarget);
+    var $img = $link.parents('.work').find('img');
+    var imagePath = $link.attr('href');
+    console.log(imagePath);
+    $img.attr('src', imagePath);
   }
 
   function loadWorkTemplate() {
@@ -204,6 +237,7 @@
   }
 
   function loadNextAsset(assetsToLoad, assetsTotal, onAssetLoad, onAllAssetsLoad) {
+
     if (assetsToLoad.length === 0) {
       onAllAssetsLoad();
       return;  

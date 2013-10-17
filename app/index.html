@@ -55,7 +55,7 @@
         </script>
 
         <script id="template-work-thumbnail" type="text/template" style="display: none;">
-          <div class="thumbnail">
+          <div class="thumbnail" data-work="{{id}}">
             <div class="inner-container">
               <img src="{{imagePath}}" alt="{{name}}" title="{{name}}" />
               <div class="reveal">
@@ -76,7 +76,7 @@
               <div class="image-selector">
                 <ul>
                   {{#images}}
-                    <li><a href='#{{.}}'>Image</a></li>
+                    <li><a class="image-selector" href='{{.}}'>Image</a></li>
                   {{/images}}
                 </ul>
               </div>
