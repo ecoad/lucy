@@ -8,21 +8,25 @@
     items: [{
         id: 'itv',
         name: 'ITV',
+        summary: 'Design, layout, illustration, social media',
         description: 'I worked on a short contract with ITV and produced some illustrative social media graphics for ITV3 and ITV4',
         totalImages: 3 
       }, {
         id: 'comic-relief',
         name: 'Comic Relief',
+        summary: 'Design, layout, illustration, social media',
         description: 'I worked on a short contract...',
         totalImages: 3 
       }, {
         id: 'boomerang',
         name: 'Boomerang',
+        summary: 'Design, layout, illustration, social media',
         description: 'I worked on a short contract...',
         totalImages: 3 
       }, {
         id: 'tfl',
         name: 'TFL',
+        summary: 'Design, layout, illustration, social media',
         description: 'I worked on a short contract...',
         totalImages: 3 
       }

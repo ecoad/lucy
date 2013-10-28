@@ -11,6 +11,7 @@
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/reset.css">
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
     </head>
@@ -24,10 +25,10 @@
             <h1>My name&rsquo;s Lucy Jack</h1>
             <h2>I&rsquo;m a <strong>digital designer</strong> working in London</h2>
             <nav>
-              <ul>
-                <li><a href="#">email</a></li>
-                <li><a href="#">linkedIn</a></li>
-                <li><a href="#">download cv</a></li>
+              <ul class="clearfix">
+                <li class="contact"><a href="#">contact</a></li>
+                <li class="linkedin"><a href="#">linkedin</a></li>
+                <li class="cv"><a href="#">cv</a></li>
               </ul>
             </nav>
           </div>
@@ -43,17 +44,6 @@
         <script src="bower_components/mustache/mustache.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
-
         <script id="template-work-thumbnail" type="text/template" style="display: none;">
           <div class="thumbnail" data-work="{{id}}">
             <div class="inner-container">
@@ -69,20 +59,33 @@
           <div class="work">
             <div class="inner-container">
               <h4>{{name}}</h4>
-              <h5>{{description}}</h5>
+              <h5>{{summary}}</h5>
             </div>
             <img src="{{imagePath}}" alt="{{name}}" title="{{name}}" />
             <div class="inner-container">
               <div class="image-selector">
-                <ul>
+                <ul class="clearfix">
                   {{#images}}
-                    <li><a class="image-selector" href='{{.}}'>Image</a></li>
+                    <li>
+											<a class="image-selector" href='{{.}}'>
+												<span>Image</span>
+											</a>
+										</li>
                   {{/images}}
                 </ul>
               </div>
               <p>{{description}}</p>
             </div>
           </div>
+        </script>
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
         <!-- build:js scripts/main.js -->
         <script src="scripts/main.js"></script>
