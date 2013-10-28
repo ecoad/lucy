@@ -94,7 +94,7 @@
   }
 
   function isMobileSize() {
-    return $(window).width() <= 320;
+    return $(window).width() < 720;
   }
 
   function onMainBreakpointChange() {
@@ -176,7 +176,7 @@
     console.log('Get row view', items);
     var item;
     var $fragment = $(document.createDocumentFragment());
-    var $row = $('<div />').addClass('row');
+    var $row = $('<div />').addClass('row clearfix');
     $fragment.append($row);
 
     for (var i = 0; i < items.length; i++) {
@@ -211,7 +211,7 @@
     console.log(selectedWork + ' selected');
     console.log(work);
     $('.work').remove();
-    $row.append(getWorkItemView(work));
+    $row.after(getWorkItemView(work));
   }
 
   function onImageSelectorClick(event) {

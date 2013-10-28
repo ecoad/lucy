@@ -1,8 +1,12 @@
 body {
-    margin: 1em;
-    background: #D0D0D0;
+    background: #E6E4E4;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
+}
+
+#container {
+	max-width: 59em;
+  margin: 1em 6%;
 }
 
 nav {
@@ -35,7 +39,8 @@ nav a {
 
 .work {
   background: #fff;
-  margin: 1em;
+  margin: 1em 0em;
+	border-bottom: 0.3em #D7D7D7 solid;
 }
 
 .work .inner-container {
@@ -52,10 +57,18 @@ nav a {
 	margin-right: 0%;
 }
 
+.work ul {
+	margin: 0 auto 1em auto;
+}
+
+.work ul.collection3 {
+	max-width: 80%;
+}
+
 .work li a {
-	width: 3em;
-	height: 3em;
-	border-radius: 1.5em;
+	width: 2.4em;
+	height: 2.4em;
+	border-radius: 1.2em;
 	display: inline-block;
 	background-color: #9FE7E4;
 }
@@ -68,15 +81,33 @@ nav a {
 	display: none;
 }
 
+.row {
+	margin-bottom: 2em;
+} 
+
 .thumbnail {
   float: left;
-  width: 33%;
+  width: 32%;
+  margin-right: 2%;
   height: 10em;
   background: #fff;
+	border-bottom: 0.2em #D7D7D7 solid;
+}
+.thumbnail:last-child {
+	margin-right: 0em;
+}
+
+.thumbnail .inner-container {
+	margin: 10%;
+	position: relative;
 }
 
 .thumbnail .reveal {
   display: none;
+}
+
+.thumbnail .reveal.active {
+	position: absolute;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -93,4 +124,26 @@ h1, h2, h3, h4, h5, h6 {
    display: block; 
    height: 0; 
    clear: both;
+}
+
+footer {
+	text-align: center;
+}
+
+@media (min-width: 720px) {
+	.image-selector ul {
+		width: 40%;
+	}
+
+	.work .inner-container {
+		max-width: 35.6em;
+		padding: 2em 0em;
+		margin: 0 auto;
+	}
+}
+
+@media (min-width: 59em) {
+	#container {
+		margin: 0 auto;
+	}
 }
