@@ -6,22 +6,26 @@ body {
 
 #container {
 	max-width: 59em;
-  margin: 1em 6%;
+  margin: 2em 6%;
+}
+
+#loading {
+	display: none;
 }
 
 nav {
 	border-bottom: 2px #F0EFED solid;
-	padding-bottom: 0.5em;
+	padding: 2em 0em;
 }
 
 
 nav li {
 	float: left;
 	width: 30%;
-	height: 2em;
 	margin-right: 5%;
+	padding: 0.8em 0em;
 	text-align: center;
-	border-radius: 0.3em;
+	border-radius: 0.6em;
 }
 
 nav li:last-child {
@@ -35,6 +39,10 @@ nav li.cv { background-color: #FF8EC2; }
 nav a {
 	color: #FFFFFF;
 	text-decoration: none;
+}
+
+#work {
+	margin: 2em 0em;
 }
 
 .work {
@@ -131,6 +139,11 @@ footer {
 }
 
 @media (min-width: 720px) {
+	#container {
+		margin: 0 auto;
+		padding: 3em;
+	}
+
 	.image-selector ul {
 		width: 40%;
 	}
@@ -142,8 +155,5 @@ footer {
 	}
 }
 
-@media (min-width: 59em) {
-	#container {
-		margin: 0 auto;
-	}
+@media (min-width: 944px) {
 }

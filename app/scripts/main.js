@@ -112,6 +112,7 @@
 
   function loadMainAssets() {
     console.log('Load');
+		$('#loading').show();
     var item;
     var assetsToLoad = [];
     var thumbLocation;
@@ -218,6 +219,8 @@
     event.preventDefault();
     console.log(event.currentTarget);
     var $link = $(event.currentTarget);
+		$link.parents('ul').children('li').removeClass('selected');
+    $link.parents('li').addClass('selected');
     var $img = $link.parents('.work').find('img');
     var imagePath = $link.attr('href');
     console.log(imagePath);
@@ -243,6 +246,7 @@
   function loadNextAsset(assetsToLoad, assetsTotal, onAssetLoad, onAllAssetsLoad) {
 
     if (assetsToLoad.length === 0) {
+			$('#loading').hide();
       onAllAssetsLoad();
       return;  
     }
