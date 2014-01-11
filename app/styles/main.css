@@ -49,6 +49,15 @@ nav a {
   background: #fff;
   margin: 1em 0em;
 	border-bottom: 0.3em #D7D7D7 solid;
+  -webkit-transition: opacity 0.7s ease-in-out;
+  -moz-transition: opacity 0.7s ease-in-out;
+  -ms-transition: opacity 0.7s ease-in-out;
+  -o-transition: opacity 0.7s ease-in-out;
+  transition: opacity 0.7s ease-in-out;
+}
+
+.work.loading {
+  opacity: 0;
 }
 
 .work .inner-container {
@@ -81,7 +90,7 @@ nav a {
 	background-color: #9FE7E4;
 }
 
-.work li a.selected {
+.work li.selected a {
 	background-color: #1CBCB4;
 }
 
@@ -143,6 +152,15 @@ footer {
 		margin: 0 auto;
 		padding: 3em;
 	}
+
+  nav ul {
+    max-width: 370px;
+    margin: 0 auto;
+  }
+
+  nav li {
+    padding: 0.4em 0;
+  }
 
 	.image-selector ul {
 		width: 40%;

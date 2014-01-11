@@ -32,7 +32,6 @@
               </ul>
             </nav>
           </div>
-          <div id="loading">loading&hellip;</div>
           <div id="work">
           </div>
 					<footer>2013 Lucy Jack Ltd</footer>
@@ -57,7 +56,7 @@
           </div>
         </script>
         <script id="template-work" type="text/template" style="display: none;">
-          <div class="work">
+          <div class="work {{id}} loading">
             <div class="inner-container">
               <h4>{{name}}</h4>
               <h5>{{summary}}</h5>
@@ -68,7 +67,7 @@
                 <ul class="clearfix collection{{totalImages}}">
                   {{#images}}
                     <li>
-											<a class="image-selector" href='{{.}}'>
+											<a class="select-image" href='{{.}}'>
 												<span>Image</span>
 											</a>
 										</li>
