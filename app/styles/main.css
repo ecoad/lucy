@@ -1,7 +1,8 @@
 body {
     background: #E6E4E4;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333;
+    color: #666666;
+    background-image: url('/images/background.jpg');
 }
 
 #container {
@@ -10,7 +11,7 @@ body {
 }
 
 nav {
-	border-bottom: 2px #F0EFED solid;
+	border-bottom: 1px #d7d7d7 solid;
 	padding: 2em 0em;
 }
 
@@ -22,6 +23,10 @@ nav li {
 	padding: 0.8em 0em;
 	text-align: center;
 	border-radius: 0.6em;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 500;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
 }
 
 nav li:last-child {
@@ -44,29 +49,47 @@ nav a {
 .work {
   background: #fff;
   margin: 1em 0em;
-	border-bottom: 0.3em #D7D7D7 solid;
+	border-bottom: 0.4em #D7D7D7 solid;
 }
 
 .work .inner-container {
   padding: 1em;
 }
 
-.work li {
-	float: left;
-	width: 30%;
-	margin-right: 5%;
-	text-align: center;
-}
-.work li:last-child {
-	margin-right: 0%;
+.work .inner-container p {
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: 300;
+  line-height: 1.3em;
+  padding: 0 1em;
 }
 
 .work ul {
 	margin: 0 auto 1em auto;
+  max-width: 80%;
 }
 
-.work ul.collection3 {
-	max-width: 80%;
+.work ul.collection2 {
+  width: 40%;
+}
+
+.work li {
+  float: left;
+  width: 30%;
+  margin-right: 5%;
+  text-align: center;
+}
+
+.work ul.collection2 li {
+  width: 47.5%;
+}
+
+.work ul.collection4 li {
+  width: 21.25%;
+}
+
+.work li:last-child {
+  margin-right: 0%;
 }
 
 .work li a {
@@ -128,6 +151,30 @@ nav a {
 
 h1, h2, h3, h4, h5, h6 {
   text-align: center;
+  font-family: 'Nunito', sans-serif;
+  color: #4a4a4a;
+}
+
+h1, h2 {
+  font-size: 1.7em;
+  font-weight: 300;
+  line-height: 1.2em;
+}
+
+h3 {
+  font-size: 1.7em;
+  font-weight: 300;
+  padding-bottom: 1rem;
+}
+
+h4 {
+  font-size: 1.3em;
+  font-weight: 300;
+  /*padding-bottom: 1rem; */
+}
+
+h1 strong,h2 strong {
+  font-weight: 500;
 }
 
 .work img, .thumbnail img {
@@ -142,8 +189,22 @@ h1, h2, h3, h4, h5, h6 {
    clear: both;
 }
 
+#divider {
+  background-image: url('/images/divider.png');
+  height: 24px;
+  width: 100%;
+  margin: 2em 0;
+}
+
 footer {
 	text-align: center;
+}
+
+@media (min-width: 360px) {
+  h1, h2 {
+    font-size: 2em;
+    line-height: 1.3em;
+  }
 }
 
 @media (min-width: 720px) {
