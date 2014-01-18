@@ -9,10 +9,6 @@ body {
   margin: 2em 6%;
 }
 
-#loading {
-	display: none;
-}
-
 nav {
 	border-bottom: 2px #F0EFED solid;
 	padding: 2em 0em;
@@ -49,15 +45,6 @@ nav a {
   background: #fff;
   margin: 1em 0em;
 	border-bottom: 0.3em #D7D7D7 solid;
-  -webkit-transition: opacity 0.7s ease-in-out;
-  -moz-transition: opacity 0.7s ease-in-out;
-  -ms-transition: opacity 0.7s ease-in-out;
-  -o-transition: opacity 0.7s ease-in-out;
-  transition: opacity 0.7s ease-in-out;
-}
-
-.work.loading {
-  opacity: 0;
 }
 
 .work .inner-container {
@@ -125,6 +112,18 @@ nav a {
 
 .thumbnail .reveal.active {
 	position: absolute;
+}
+
+.work, .thumbnail {
+  -webkit-transition: opacity 0.7s ease-in-out;
+  -moz-transition: opacity 0.7s ease-in-out;
+  -ms-transition: opacity 0.7s ease-in-out;
+  -o-transition: opacity 0.7s ease-in-out;
+  transition: opacity 0.7s ease-in-out;
+}
+
+.loading {
+  opacity: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {

@@ -85,13 +85,11 @@
     if (currentMobileSize) {
       console.log('Mobile view')
       loadMobileAssets()
-      // setupMobileDOM()
       renderMobileView()
     } else {
       console.log('Desktop view')
       loadMainAssets()
-      // setupMainDOM()
-      // renderMainView()
+      renderMainView()
     }
   }
 
@@ -104,34 +102,6 @@
     setup()
   }
 
-  function setupMainDOM() {
-    console.log('Setup DOM')    
-  }
-
-  function setupMobileDOM() {
-    console.log('Setup Mobile DOM')    
-  }
-/*
-  function loadMainAssets() {
-    console.log('Load')
-    var item
-    var assetsToLoad = []
-    var thumbLocation
-    for (var i = 0; i < data.items.length; i++) {
-      thumbLocation = '/images/' + data.items[i].id + '/thumb.jpg'
-      assetsToLoad.push(thumbLocation)
-    }
-    console.log('Assets to load:')
-    console.log(assetsToLoad)
-
-    loadNextAsset(assetsToLoad, assetsToLoad.length)
-  }
-*/
-/*
-  function renderLoader(percentage) {
-    console.log('Loader update: ' + percentage)
-  }
-*/
   function renderMainView() {
     console.log('Render main view')
     loadWorkThumbnailTemplate()
@@ -232,7 +202,7 @@
   }
 
   function loadMobileAssets() {
-    console.log('Load')
+    console.log('Load mobile assets')
     var item
     var assetsToLoad = []
     var imageLocation
@@ -244,10 +214,27 @@
     console.log('Assets to load:')
     console.log(assetsToLoad)
 
-    loadNextAsset(assetsToLoad)
+    loadNextAsset(assetsToLoad, 'work')
   }
 
-  function loadNextAsset(assetsToLoad) {
+  function loadMainAssets() {
+    console.log('Load main assets')
+    var item
+    var assetsToLoad = []
+    var thumbLocation
+    for (var i = 0; i < data.items.length; i++) {
+      item = data.items[i]
+      console.log('item', item)
+      thumbLocation = '/images/' + data.items[i].id + '/thumb.jpg'
+      assetsToLoad.push({imageLocation: thumbLocation, item: item})
+    }
+    console.log('Assets to load:')
+    console.log(assetsToLoad)
+
+    loadNextAsset(assetsToLoad, 'thumbnail')
+  }
+
+  function loadNextAsset(assetsToLoad, type) {
 
     if (assetsToLoad.length === 0) {
       return  
@@ -257,16 +244,17 @@
     console.log('Next to load: ', nextToLoad)
     var image = new Image()
     image.onload = function() {
-      assetLoaded(assetsToLoad)
+      assetLoaded(assetsToLoad, type)
     }
     image.src = nextToLoad.imageLocation
   }
 
-  function assetLoaded(assetsToLoad, onAssetLoad) {
+  function assetLoaded(assetsToLoad, type) {
     var assetToLoad = assetsToLoad.shift()
-    console.log('Asset loaded: ' + assetToLoad)
-    $workContainer.find('.work.' + assetToLoad.item.id).removeClass('loading')
+    console.log('Asset loaded', assetToLoad)
+    var loadingSelector = '.' + type + '.' + assetToLoad.item.id;
+    $workContainer.find(loadingSelector).removeClass('loading')
     
-    loadNextAsset(assetsToLoad)
+    loadNextAsset(assetsToLoad, type)
   }
 }(jQuery))
