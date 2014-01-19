@@ -303,7 +303,10 @@
     var assetToLoad = assetsToLoad.shift()
     console.log('Asset loaded', assetToLoad)
     var loadingSelector = '.' + type + '.' + assetToLoad.item.id;
-    $workContainer.find(loadingSelector).removeClass('loading')
+    var $work = $workContainer.find(loadingSelector)
+    $work.removeClass('loading')
+    $img = $work.find('img[data-src]')
+    $img.attr('src', $img.data('src'))
     
     loadNextAsset(assetsToLoad, type)
   }
