@@ -187,6 +187,7 @@
 
     for (var i = 0; i < items.length; i++) {
       item = items[i]
+      item.thumbPath = '/images/' + item.id + '/thumb.jpg'
       $thumbnail = $(Mustache.render(workThumbnailTemplate, item))
       $thumbnail.click(onThumbnailClick)
       $row.append($thumbnail)
@@ -219,6 +220,7 @@
     console.log(work)
     $('.work').remove()
     $row.after(getWorkItemView(work))
+    loadNextAsset([{imageLocation: '/images/' + work.id + '/1.jpg', item: work}], 'work')
   }
 
   function onImageSelectorClick(event) {
@@ -273,7 +275,7 @@
     for (var i = 0; i < data.items.length; i++) {
       item = data.items[i]
       console.log('item', item)
-      thumbLocation = '/images/' + data.items[i].id + '/1.jpg'
+      thumbLocation = '/images/' + data.items[i].id + '/thumb.jpg'
       assetsToLoad.push({imageLocation: thumbLocation, item: item})
     }
     console.log('Assets to load:')

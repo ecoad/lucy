@@ -52,16 +52,21 @@ nav a {
 	border-bottom: 0.4em #D7D7D7 solid;
 }
 
-.work .inner-container {
-  padding: 1em;
+.work .inner-container h3 {
+  padding: 2rem 1rem 1rem 1rem;
+}
+
+.work .inner-container h4 {
+  padding: 0rem 2rem 1rem 2rem;
+  line-height: 1.5em;
 }
 
 .work .inner-container p {
   text-align: center;
-  font-size: 1.3em;
+  font-size: 1.1em;
   font-weight: 300;
   line-height: 1.3em;
-  padding: 0 1em;
+  padding: 0 1em 1em 1em;
 }
 
 .work ul {
@@ -95,6 +100,7 @@ nav a {
 .work li a {
 	width: 2.4em;
 	height: 2.4em;
+  margin-top: 2em;
 	border-radius: 1.2em;
 	display: inline-block;
 	background-color: #9FE7E4;
@@ -109,16 +115,15 @@ nav a {
 }
 
 .row {
-	margin-bottom: 2em;
+	margin-bottom: 1.4em;
 } 
 
 .thumbnail {
   float: left;
-  width: 32%;
-  margin-right: 2%;
-  height: 10em;
+  width: 31.33%;
+  margin-right: 3%;
   background: #fff;
-	border-bottom: 0.2em #D7D7D7 solid;
+	border-bottom: 0.3rem #D7D7D7 solid;
 }
 .thumbnail:last-child {
 	margin-right: 0em;
@@ -162,7 +167,7 @@ h1, h2 {
 }
 
 h3 {
-  font-size: 1.7em;
+  font-size: 1.9em;
   font-weight: 300;
   padding-bottom: 1rem;
 }
@@ -210,8 +215,12 @@ footer {
 @media (min-width: 720px) {
 	#container {
 		margin: 0 auto;
-		padding: 3em;
+		padding: 6em 3em 3em 3em;
 	}
+
+  nav {
+    padding: 2em 0em 3em 0em;
+  }
 
   nav ul {
     max-width: 370px;
@@ -220,6 +229,8 @@ footer {
 
   nav li {
     padding: 0.4em 0;
+    font-size: 1.1em;
+    letter-spacing: 0.03em;
   }
 
 	.image-selector ul {
