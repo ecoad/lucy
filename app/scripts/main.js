@@ -9,7 +9,7 @@
         id: 'cadbury',
         name: 'Cadbury',
         summary: 'Design, UI, Social Media, Responsive site',
-        description: 'I’ve worked at Comic Relief over the past 3 years on Sport Relief 2012 and 2014 and a Red Nose Day 2013. My work has been prodeminantly on the giving platforms where I’ve been the lead designer. The projects are agile and I worked closely with the developers, projects mangers and marketing as well as the in house design team.',
+        description: 'I’ve worked at Comic Relief over the past 3 years on Sport Relief 2012 and 2014 and a Red Nose Day 2013. My work has been prodeminantly on the giving platforms where I’ve been the lead designer.',
         totalImages: 2
       }, {
         id: 'itv',
@@ -27,7 +27,7 @@
         id: 'boomerang',
         name: 'Boomerang',
         summary: 'Design, UI, Social Meida, Responsive site',
-        description: 'I’ve worked at Comic Relief over the past 3 years on Sport Relief 2012 and 2014 and a Red Nose Day 2013. My work has been prodeminantly on the giving platforms where I’ve been the lead designer. The projects are agile and I worked closely with the developers, projects mangers and marketing as well as the in house design team.',
+        description: 'I’ve worked at Comic Relief over the past 3 years on Sport Relief 2012 and 2014 and a Red Nose Day 2013. My work has been prodeminantly on the giving platforms where I’ve been the lead designer.',
         totalImages: 2
       }, {
         id: 'stylist',
@@ -63,19 +63,19 @@
         id: 'yeyah',
         name: 'Yeyah',
         summary: 'Design, Print, Illustration, Branding',
-        description: 'I’ve worked at Comic Relief over the past 3 years on Sport Relief 2012 and 2014 and a Red Nose Day 2013. My work has been prodeminantly on the giving platforms where I’ve been the lead designer. The projects are agile and I worked closely with the developers, projects mangers and marketing as well as the in house design team.',
+        description: 'I’ve worked at Comic Relief over the past 3 years on Sport Relief 2012 and 2014 and a Red Nose Day 2013. My work has been prodeminantly on the giving platforms where I’ve been the lead designer.',
         totalImages: 4 
       }, {
         id: 'asos',
         name: 'ASOS',
         summary: 'Design, Print, Illustration, Branding',
-        description: 'I’ve worked at Comic Relief over the past 3 years on Sport Relief 2012 and 2014 and a Red Nose Day 2013. My work has been prodeminantly on the giving platforms where I’ve been the lead designer. The projects are agile and I worked closely with the developers, projects mangers and marketing as well as the in house design team. ',
+        description: 'I’ve worked at Comic Relief over the past 3 years on Sport Relief 2012 and 2014 and a Red Nose Day 2013. My work has been prodeminantly on the giving platforms where I’ve been the lead designer. ',
         totalImages: 2 
       }, {
         id: 'halloween',
         name: 'Halloween Flyers and Poster',
         summary: 'Design, Print, Illustration',
-        description: 'I’ve worked at Comic Relief over the past 3 years on Sport Relief 2012 and 2014 and a Red Nose Day 2013. My work has been prodeminantly on the giving platforms where I’ve been the lead designer. The projects are agile and I worked closely with the developers, projects mangers and marketing as well as the in house design team. ',
+        description: 'I’ve worked at Comic Relief over the past 3 years on Sport Relief 2012 and 2014 and a Red Nose Day 2013. My work has been prodeminantly on the giving platforms where I’ve been the lead designer. ',
         totalImages: 2 
       }
     ]
