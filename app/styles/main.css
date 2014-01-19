@@ -130,7 +130,7 @@ nav a {
 }
 
 .thumbnail .inner-container {
-	margin: 10%;
+	margin: 6%;
 	position: relative;
 }
 
@@ -156,7 +156,7 @@ nav a {
 
 h1, h2, h3, h4, h5, h6 {
   text-align: center;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Oxygen', sans-serif;
   color: #4a4a4a;
 }
 
@@ -237,11 +237,29 @@ footer {
 		width: 40%;
 	}
 
+  .work li a {
+    width: 2em;
+    height: 2em;
+    margin-top: 1em;
+    border-radius: 1em;
+  }
+
+  .work img {
+    width: 96%;
+    height: auto;
+    margin: 0 2%;
+  }
+
 	.work .inner-container {
-		max-width: 35.6em;
-		padding: 2em 0em;
+		max-width: 36.6em;
+		padding: 1em 0em 1em 0em;
 		margin: 0 auto;
 	}
+
+  .work .inner-container p {
+    font-size: 0.9em;
+    line-height: 1.6em;
+  }
 }
 
 @media (min-width: 944px) {

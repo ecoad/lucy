@@ -55,8 +55,8 @@
         totalImages: 4 
       }, {
         id: 'comic-relief',
-        name: 'Design, UI, Social Meida, Responsive site',
-        summary: 'Design, UI, UX, Wireframes, Layout',
+        name: 'Comic Relief',
+        summary: 'Design, UI, Social Meida, Responsive site',
         description: 'I’ve worked at Comic Relief over the past 3 years on Sport Relief 2012 and 2014 and a Red Nose Day 2013. My work has been predeminantly on the giving platforms where I’ve been the lead designer. Working in an Agile team I was in constant contact with the developers, projects mangers and marketing as well as the in house design team. Other projects there included email design, banners and pages for the main site.',
         totalImages: 4 
       }, {
