@@ -136,6 +136,7 @@
   function onThumbnailClick(event) {
     var $thumbnail = $(event.currentTarget)
     var $row = $thumbnail.parents('.row')
+    // $("html, body").animate({ scrollTop: $row.offset().top + "px" });
     var selectedWork = $thumbnail.attr('data-work')
     var work
     for (var i = 0; i < items.length; i++) {

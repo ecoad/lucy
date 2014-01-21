@@ -134,22 +134,76 @@ nav a {
   margin-right: 3%;
   background: #fff;
 	border-bottom: 0.3rem #D7D7D7 solid;
+  cursor: pointer;
 }
 .thumbnail:last-child {
-	margin-right: 0em;
+  margin-right: 0em;
 }
 
 .thumbnail .inner-container {
-	margin: 6%;
-	position: relative;
+  margin: 6%;
+  position: relative;
 }
 
 .thumbnail .reveal {
   display: none;
+	position: absolute;
+  width: 100%;
+  top: 0px;
 }
 
-.thumbnail .reveal.active {
-	position: absolute;
+.thumbnail .reveal h3, .thumbnail .reveal h4 {
+  color: #5F5F5F;
+}
+
+.thumbnail .reveal h3 {
+  font-size: 1.3em;
+  font-weight: 100;
+  padding: 0.4rem 0 0.6rem 0;
+  letter-spacing: 0.02em;
+}
+
+.thumbnail .reveal h4 {
+  font-size: 0.8em;
+  font-weight: 100;
+  line-height: 1.4em;
+}
+
+.thumbnail .reveal span {
+  text-align: center;
+  display: block;
+  margin-top: 0.8rem;
+}
+
+.thumbnail .reveal a {
+
+  background: #26e5ef; /* Old browsers */
+  background: -moz-linear-gradient(45deg,  #26e5ef 5%, #bba9d1 50%, #ff8ec2 95%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(5%,#26e5ef), color-stop(50%,#bba9d1), color-stop(95%,#ff8ec2)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(45deg,  #26e5ef 5%,#bba9d1 50%,#ff8ec2 95%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(45deg,  #26e5ef 5%,#bba9d1 50%,#ff8ec2 95%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(45deg,  #26e5ef 5%,#bba9d1 50%,#ff8ec2 95%); /* IE10+ */
+  background: linear-gradient(45deg,  #26e5ef 5%,#bba9d1 50%,#ff8ec2 95%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26e5ef', endColorstr='#ff8ec2',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+  font-family: 'Oxygen', sans-serif;
+  font-weight: 700;
+
+  padding: 0.4em 2em;
+  letter-spacing:  0.01em;
+  border-radius: 0.8em;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 0.75em;
+}
+
+.thumbnail:hover img {
+/*.thumbnail img {*/
+  visibility: hidden;
+}
+
+.thumbnail:hover .reveal {
+  display: block;
 }
 
 .work, .thumbnail {
@@ -212,6 +266,7 @@ h1 strong,h2 strong {
 }
 
 footer {
+  margin-top: 2em;
 	text-align: center;
 }
 
@@ -296,9 +351,31 @@ footer {
 
 }
 
+@media (min-width: 800px) {
+  .thumbnail .reveal {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .thumbnail .reveal {
+    margin-top: 1rem;
+  }
+
+  .thumbnail .reveal h4 {
+    margin: 0 0.8rem;
+  }
+}
+
 @media (min-width: 1025px) {
   #container {
     margin: 0 auto;
     padding: 6em 3em 3em 3em;
+  }
+
+  .thumbnail .reveal h4 {
+    margin: 0 1.8rem;
+    line-height: 1.6em;
+    font-size: 0.9em;
   }
 }
