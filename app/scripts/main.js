@@ -4,86 +4,15 @@
   var resizeTimeout
   var currentMobileSize
   var $workContainer
-  var data = {
-    items: [{
-        id: 'cadbury',
-        name: 'Cadbury',
-        summary: 'Design, UI, Social Media, Responsive site',
-        description: 'I’ve worked at Comic Relief over the past 3 years on Sport Relief 2012 and 2014 and a Red Nose Day 2013. My work has been prodeminantly on the giving platforms where I’ve been the lead designer.',
-        totalImages: 2
-      }, {
-        id: 'itv',
-        name: 'ITV',
-        summary: 'Design, UI, Social Media, Responsive site',
-        description: 'I’ve worked at Comic Relief over the past 3 years on Sport Relief 2012 and 2014 and a Red Nose Day 2013. My work has been prodeminantly on the giving platforms where I’ve been the lead designer. The projects are agile and I worked closely with the developers, projects mangers and marketing as well as the in house design team',
-        totalImages: 2 
-      }, {
-        id: 'silver-spoon',
-        name: 'Silver Spoon',
-        summary: 'Concepts, Design, UI, UX, Layout',
-        description: 'I got the chance to design the new Silver Spoon site while freelancing at CMW.',
-        totalImages: 2
-      }, {
-        id: 'boomerang',
-        name: 'Boomerang',
-        summary: 'Design, UI, Social Meida, Responsive site',
-        description: 'I’ve worked at Comic Relief over the past 3 years on Sport Relief 2012 and 2014 and a Red Nose Day 2013. My work has been prodeminantly on the giving platforms where I’ve been the lead designer.',
-        totalImages: 2
-      }, {
-        id: 'stylist',
-        name: 'Stylist',
-        summary: 'Design, UI, UX, Wireframes, Layout',
-        description: 'In 2010 I was lucky enough to work on the Stylist website as lead designer while working full time at Clock. Taking inspiration from the magazine, I put together the homepage, article and video pages, once those were designed the rest of the site was taken from these templates. The site was briefed to be like an online version of the printed magazine, clean and friendly with a strong fashion edge. The site is still being used today.',
-        totalImages: 2 
-      }, {
-        id: 'archive',
-        name: 'From the Archive',
-        summary: 'Design, Illustration, Concepts',
-        description: 'During my time working at my first job with Real 451 I got to work on various projects for TFL. We were asked to design the Oystercard welcome screens for the underground. They had to be fairly abstract but show an element of movement and colours you associate with the underground network. They ended up using these 3 of my designs.',
-        totalImages: 3 
-      }, /*{
-        id: 'just-for-laughts',
-        name: 'Just for Laughs',
-        summary: 'Concepts, Design, Layout, Typography',
-        description: 'While working at Clock I worked on an open brief to design Just for Laughs’ main website. I went down the route of a comedy poster and',
-        totalImages: 3 
-      }, */{
-        id: 'ocado',
-        name: 'Ocado',
-        summary: 'Design, UI, Social Media, Emails, Concepts',
-        description: 'I was freelancing with Ocado for 5 months. During that time I worked on a number of projects including a marketing campaign for the spring cleaning event. That involved creating concepts and then working up the chosen idea and expanding it across the site- emails, social media, backgrounds, etc. I also made numerous emails, I create the weekly newsletter which really allowed creative freedom.',
-        totalImages: 4 
-      }, {
-        id: 'comic-relief',
-        name: 'Comic Relief',
-        summary: 'Design, UI, Social Meida, Responsive site',
-        description: 'I’ve worked at Comic Relief over the past 3 years on Sport Relief 2012 and 2014 and a Red Nose Day 2013. My work has been predeminantly on the giving platforms where I’ve been the lead designer. Working in an Agile team I was in constant contact with the developers, projects mangers and marketing as well as the in house design team. Other projects there included email design, banners and pages for the main site.',
-        totalImages: 4 
-      }, {
-        id: 'yeyah',
-        name: 'Yeyah',
-        summary: 'Design, Print, Illustration, Branding',
-        description: 'I’ve worked at Comic Relief over the past 3 years on Sport Relief 2012 and 2014 and a Red Nose Day 2013. My work has been prodeminantly on the giving platforms where I’ve been the lead designer.',
-        totalImages: 4 
-      }, {
-        id: 'asos',
-        name: 'ASOS',
-        summary: 'Design, Print, Illustration, Branding',
-        description: 'I’ve worked at Comic Relief over the past 3 years on Sport Relief 2012 and 2014 and a Red Nose Day 2013. My work has been prodeminantly on the giving platforms where I’ve been the lead designer. ',
-        totalImages: 2 
-      }, {
-        id: 'halloween',
-        name: 'Halloween Flyers and Poster',
-        summary: 'Design, Print, Illustration',
-        description: 'I’ve worked at Comic Relief over the past 3 years on Sport Relief 2012 and 2014 and a Red Nose Day 2013. My work has been prodeminantly on the giving platforms where I’ve been the lead designer. ',
-        totalImages: 2 
-      }
-    ]
-  }
+  var items = []
   
   $(document).ready(function() {
-    console.log('Ready')
-    init()
+    $.getJSON('http://backstage.io.shortlistmedia.co.uk/elliot-personal', function(data) {
+      for (var i in data) {
+        items.push(data[i])
+      }
+      init()
+    })
   })
 
   function init() {
@@ -115,15 +44,15 @@
 
   function initImagePaths() {
     var item
-    for (var i = 0; i < data.items.length; i++) {    
-      item = data.items[i]
+    for (var i = 0; i < items.length; i++) {    
+      item = items[i]
       item.images = []
       for (var j = 0; j < item.totalImages; j++) {
         item.images.push('/images/' + item.id + '/' + (j + 1) + '.jpg')
       }
       item.imagePath = item.images[0]
     }
-    console.log('Init image paths:', data.items)
+    console.log('Init image paths:', items)
   }
 
   function setup() {
@@ -155,10 +84,10 @@
     loadWorkThumbnailTemplate()
     loadWorkTemplate()
 
-    var rows = Math.ceil(data.items.length / 3)
+    var rows = Math.ceil(items.length / 3)
     console.log('Thumbnail rows: ' + rows)
     for (var row = 1; row <= rows; row++) {
-      $row = getRowView(data.items.slice((row -1) * 3, row * 3))
+      $row = getRowView(items.slice((row -1) * 3, row * 3))
       $workContainer.append($row)
     }
 
@@ -169,8 +98,8 @@
     loadWorkTemplate()
     var $container = $(document.createDocumentFragment())
     var item
-    for (var i = 0; i < data.items.length; i++) {
-      item = data.items[i]
+    for (var i = 0; i < items.length; i++) {
+      item = items[i]
       $container.append(getWorkItemView(item))
     }
 
@@ -209,9 +138,9 @@
     var $row = $thumbnail.parents('.row')
     var selectedWork = $thumbnail.attr('data-work')
     var work
-    for (var i = 0; i < data.items.length; i++) {
-      if (data.items[i].id === selectedWork) {
-        work = data.items[i]
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].id === selectedWork) {
+        work = items[i]
         break
       }
     }
@@ -256,8 +185,8 @@
     var item
     var assetsToLoad = []
     var imageLocation
-    for (var i = 0; i < data.items.length; i++) {
-      item = data.items[i]
+    for (var i = 0; i < items.length; i++) {
+      item = items[i]
       imageLocation = item.images[0]
       assetsToLoad.push({imageLocation: imageLocation, item: item})
     }
@@ -272,10 +201,10 @@
     var item
     var assetsToLoad = []
     var thumbLocation
-    for (var i = 0; i < data.items.length; i++) {
-      item = data.items[i]
+    for (var i = 0; i < items.length; i++) {
+      item = items[i]
       console.log('item', item)
-      thumbLocation = '/images/' + data.items[i].id + '/thumb.jpg'
+      thumbLocation = '/images/' + items[i].id + '/thumb.jpg'
       assetsToLoad.push({imageLocation: thumbLocation, item: item})
     }
     console.log('Assets to load:')
